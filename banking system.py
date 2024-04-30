@@ -18,11 +18,13 @@ class BankAccount:
     def withdraw(self):
         amount = int(input('Enter the withdrawal amount:'))
         pass_code = int(input('Enter your pass code:'))
-        self.balance -= amount
         if amount > self.balance:
             print('Insufficient balance')
-        else:
+        elif pass_code == self.pass_code:
+            self.balance -= amount
             print('Transaction successful')
+        else:
+            print('Transaction failed invalid credentials')
     def check_balance(self):
          print('Current balance is:',self.balance)
 
